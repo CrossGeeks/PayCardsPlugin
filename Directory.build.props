@@ -8,7 +8,7 @@
     <PackageIconFullPath>$(MSBuildThisFileDirectory)icon.png</PackageIconFullPath>-->
     <Authors>Rendy Del Rosario</Authors>
     <Owners>Rendy Del Rosario, CrossGeeks</Owners>
-    <PackageTags>iOS,Android,firebase,push notifications,cloud messaging,xamarin,plugins</PackageTags>
+    <PackageTags>iOS,Android,credit cards,scan,paycards,xamarin,plugins</PackageTags>
     <PackageReleaseNotes>https://github.com/CrossGeeks/PayCardsPlugin/releases</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <NeutralLanguage>en-US</NeutralLanguage>
