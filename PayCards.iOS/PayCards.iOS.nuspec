@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package >
+  <metadata minClientVersion="2.8.1">
+    <id>PayCards.iOS</id>
+    <version>1.0.0</version>
+    <title>PayCards.iOS</title>
+    <authors>crossgeeks, rdelrosario</authors>
+    <owners>crossgeeks</owners>
+    <licenseUrl>https://github.com/CrossGeeks/PayCardsPlugin/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/CrossGeeks/PayCardsPlugin</projectUrl>
+    <iconUrl>https://github.com/CrossGeeks/PayCardsPlugin/blob/master/art/icon.png?raw=true</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>PayCards iOS Binding library.</description>
+    <summary>PayCards iOS Binding library</summary>
+    <releaseNotes>Credit card recognition in Xamarin.iOS</releaseNotes>
+    <copyright>Copyright 2020</copyright>
+    <tags>xamarin.iOS, paycards, credit cards, scan</tags>
+    <dependencies>
+    </dependencies>
+  </metadata>
+  <files>
+         <!--Xamarin.iOS-->
+        <file src="bin\Release\NativeLibrary.dll" target="lib\Xamarin.iOS10" />
+  </files>
+</package>
