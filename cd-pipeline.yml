@@ -1,0 +1,64 @@
+variables:
+  MONO_VERSION: 6_4_0
+  NETCORE_VERSION: '3.0.x'
+
+# set the version numbering, this results in 1.0.1 for the first build incrementing that way.
+name: 3.3$(rev:.r)
+
+# Defines that a commit to the master branch should trigger this build
+trigger:
+- master
+
+# Defines that PRs against this branch should also trigger this build
+pr:
+- master
+
+# the machine and prerequisites to run this build on
+pool:
+  vmImage: macos-10.14
+
+# The different steps in our build
+steps:
+
+- bash: sudo $AGENT_HOMEDIRECTORY/scripts/select-xamarin-sdk.sh $(MONO_VERSION)
+  displayName: Switch to the latest Xamarin SDK
+
+- task: UseDotNet@2
+  displayName: 'Use .Net Core sdk'
+  inputs:
+     version: $(NETCORE_VERSION)
+     includePreviewVersions: false
+
+# build and pack a beta version of the NuGet package. Versioning is done through the name tag in this definition.
+- task: MSBuild@1
+  displayName: 'Build & Pack beta build'
+  inputs:
+    solution: 'PayCards/PayCards.csproj'
+    configuration: 'Release'
+    msbuildArguments: '/restore /t:Build /p:ContinuousIntegrationBuild=true /p:Deterministic=false /t:Pack /p:PackageVersion=$(Build.BuildNumber)-beta /p:PackageOutputPath=$(build.artifactstagingdirectory)/beta /p:AssemblyFileVersion=$(Build.BuildNumber)'
+    clean: true
+
+# build and pack a final version of the NuGet package. Versioning is done through the name tag in this definition.
+- task: MSBuild@1
+  displayName: 'Build & Pack final build'
+  inputs:
+    solution: 'PayCards/PayCards.csproj'
+    configuration: 'Release'
+    msbuildArguments: '/restore /t:Build /p:ContinuousIntegrationBuild=true /p:Deterministic=false /t:Pack /p:PackageVersion=$(Build.BuildNumber) /p:PackageOutputPath=$(build.artifactstagingdirectory)/final /p:AssemblyFileVersion=$(Build.BuildNumber)'
+    clean: true
+
+- task: DeleteFiles@1
+  inputs:
+    SourceFolder: '$(build.artifactstagingdirectory)/beta'
+    Contents: '*.symbols.nupkg'
+
+- task: DeleteFiles@1
+  inputs:
+    SourceFolder: '$(build.artifactstagingdirectory)/final'
+    Contents: '*.symbols.nupkg'
+
+# publish the artifacts as results of the build
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+
+

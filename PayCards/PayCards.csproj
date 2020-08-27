@@ -1,0 +1,64 @@
+<Project Sdk="MSBuild.Sdk.Extras">
+
+  <PropertyGroup>
+
+    <TargetFrameworks>netstandard2.0;xamarin.ios10;monoandroid9.0;monoandroid10.0</TargetFrameworks>
+    <!--<TargetFrameworks>netstandard2.0;xamarin.ios10;xamarin.mac20;xamarin.tvos10;xamarin.watchos10;monoandroid10.0;tizen40;netcoreapp3.1;net472</TargetFrameworks>
+    <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">uap10.0.17763;$(TargetFrameworks)</TargetFrameworks>-->
+
+    <!--Assembly and Namespace info -->
+    <AssemblyName>Plugin.PayCards</AssemblyName>
+    <RootNamespace>Plugin.PayCards</RootNamespace>
+    <Title>Pay Cards Plugin for Xamarin iOS and Android</Title>
+    <Summary>Recognize credit cards across Xamarin.iOS and Xamarin.Android</Summary>
+    <Description>Recognize credit cards across Xamarin.iOS and Xamarin.Android</Description>
+
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Platforms\**\*.cs" />
+    <None Include="Platforms\**\*.cs" />
+    <None Include="Resources\*.cs" />
+    <Compile Remove="Resources\*.cs" />
+    <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
+    <Compile Include="**\*.shared.cs" />
+    <Compile Include="**\*.shared.*.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard')) ">
+    <None Remove="Platforms\Netstandard\**\*.cs" />
+    <Compile Include="Platforms\Netstandard\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'!='netstandard2.0'">
+    <None Remove="Platforms\Shared\**\*.cs" />
+    <Compile Include="Platforms\Shared\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('xamarin.ios')) ">
+    <None Remove="Platforms\Apple\**\*.cs" />
+    <None Remove="Platforms\Ios\**\*.cs" />
+    <None Remove="Platforms\Xamarin\**\*.cs" />
+    <Compile Include="Platforms\Apple\**\*.cs" />
+    <Compile Include="Platforms\Ios\**\*.cs" />
+    <Compile Include="Platforms\Xamarin\**\*.cs" />
+    <Compile Include="**\*.ios.cs" />
+    <Compile Include="**\*.ios.*.cs" />
+    <ProjectReference Include="..\PayCards.iOS\PayCards.iOS.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('monoandroid')) ">
+    <None Remove="Platforms\Android\**\*.cs" />
+    <None Remove="Platforms\Xamarin\**\*.cs" />
+    <Compile Include="Platforms\Android\**\*.cs" />
+    <Compile Include="Platforms\Xamarin\**\*.cs" />
+    <AndroidResource Include="Resources\**\*.xml" SubType="Designer" Generator="MSBuild:UpdateAndroidResources" />
+    <AndroidResource Include="Resources\**\*.json" Generator="MSBuild:UpdateAndroidResources" />
+    <Compile Include="**\*.android.cs" />
+    <Compile Include="**\*.android.*.cs" />
+    <ProjectReference Include="..\PayCards.Droid\PayCards.Droid.csproj" />
+  </ItemGroup>
+
+</Project>

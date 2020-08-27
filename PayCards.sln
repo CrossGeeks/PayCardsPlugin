@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayCards", "PayCards\PayCards.csproj", "{5DC839BF-DD3B-477F-9853-28225110D32F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayCards.iOS", "PayCards.iOS\PayCards.iOS.csproj", "{76D1CEF6-EC0C-4DED-9834-735B4E99B95C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayCards.Droid", "PayCards.Droid\PayCards.Droid.csproj", "{C06BD575-0B18-4B51-A9D8-016023301A43}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5DC839BF-DD3B-477F-9853-28225110D32F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DC839BF-DD3B-477F-9853-28225110D32F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DC839BF-DD3B-477F-9853-28225110D32F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DC839BF-DD3B-477F-9853-28225110D32F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76D1CEF6-EC0C-4DED-9834-735B4E99B95C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76D1CEF6-EC0C-4DED-9834-735B4E99B95C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76D1CEF6-EC0C-4DED-9834-735B4E99B95C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76D1CEF6-EC0C-4DED-9834-735B4E99B95C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C06BD575-0B18-4B51-A9D8-016023301A43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C06BD575-0B18-4B51-A9D8-016023301A43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C06BD575-0B18-4B51-A9D8-016023301A43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C06BD575-0B18-4B51-A9D8-016023301A43}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
