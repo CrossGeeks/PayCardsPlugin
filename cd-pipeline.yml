@@ -50,7 +50,14 @@ steps:
 - task: NuGetCommand@2
   inputs:
     command: 'pack'
-    packagesToPack: '**/PayCards.iOS.csproj'
+    packagesToPack: '**/PayCards.iOS.nuspec'
+    versioningScheme: 'byEnvVar'
+    versionEnvVar: '1.0.0'
+
+- task: NuGetCommand@2
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/PayCards.Droid.nuspec'
     versioningScheme: 'byEnvVar'
     versionEnvVar: '1.0.0'
 
