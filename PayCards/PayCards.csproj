@@ -58,7 +58,7 @@
     <AndroidResource Include="Resources\**\*.json" Generator="MSBuild:UpdateAndroidResources" />
     <Compile Include="**\*.android.cs" />
     <Compile Include="**\*.android.*.cs" />
+    <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="28.0.0.3" />
     <ProjectReference Include="..\PayCards.Droid\PayCards.Droid.csproj" />
   </ItemGroup>
-
 </Project>
