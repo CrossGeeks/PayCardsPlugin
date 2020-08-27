@@ -48,6 +48,7 @@ steps:
     clean: true
 
 - task: NuGetCommand@2
+  displayName: 'Create iOS Binding Library NuGet Package'
   inputs:
     command: 'pack'
     packagesToPack: '**/PayCards.iOS.nuspec'
@@ -55,6 +56,7 @@ steps:
     packDestination: '$(Build.ArtifactStagingDirectory)/bindings/ios'
     versioningScheme: 'off'
 - task: NuGetCommand@2
+  displayName: 'Create Android Binding Library NuGet Package'
   inputs:
     command: 'pack'
     packagesToPack: '**/PayCards.Droid.nuspec'
