@@ -47,32 +47,23 @@ steps:
     msbuildArguments: '/restore /t:Build /p:ContinuousIntegrationBuild=true /p:Deterministic=false /t:Pack /p:PackageVersion=$(Build.BuildNumber) /p:PackageOutputPath=$(build.artifactstagingdirectory)/final /p:AssemblyFileVersion=$(Build.BuildNumber)'
     clean: true
 
-- task: MSBuild@1
-  displayName: 'Build & Pack beta build'
+- task: NuGetCommand@2
+  displayName: 'Create iOS Binding Library NuGet Package'
   inputs:
-    solution: 'PayCards.iOS/PayCards.iOS.csproj'
+    command: 'pack'
+    packagesToPack: '**/PayCards.iOS.nuspec'
     configuration: 'Release'
-    msbuildArguments: '/restore /t:Build /p:ContinuousIntegrationBuild=true /p:Deterministic=false /t:Pack /p:PackageVersion=$(Build.BuildNumber)-beta /p:PackageOutputPath=$(build.artifactstagingdirectory)/lib/ios/beta /p:AssemblyFileVersion=$(Build.BuildNumber)'
-    clean: true
-
-# build and pack a final version of the NuGet package. Versioning is done through the name tag in this definition.
-- task: MSBuild@1
-  displayName: 'Build & Pack final build'
+    packDestination: '$(Build.ArtifactStagingDirectory)/bindings/ios'
+    versioningScheme: 'off'
+- task: NuGetCommand@2
+  displayName: 'Create Android Binding Library NuGet Package'
   inputs:
-    solution: 'PayCards.iOS/PayCards.iOS.csproj'
+    command: 'pack'
+    packagesToPack: '**/PayCards.Droid.nuspec'
     configuration: 'Release'
-    msbuildArguments: '/restore /t:Build /p:ContinuousIntegrationBuild=true /p:Deterministic=false /t:Pack /p:PackageVersion=$(Build.BuildNumber) /p:PackageOutputPath=$(build.artifactstagingdirectory)/lib/ios/final /p:AssemblyFileVersion=$(Build.BuildNumber)'
-    clean: true
+    packDestination: '$(Build.ArtifactStagingDirectory)/bindings/android'
+    versioningScheme: 'off'
 
-- task: DeleteFiles@1
-  inputs:
-    SourceFolder: '$(build.artifactstagingdirectory)/lib/ios/beta'
-    Contents: '*.symbols.nupkg'
-
-- task: DeleteFiles@1
-  inputs:
-    SourceFolder: '$(build.artifactstagingdirectory)/lib/ios/final'
-    Contents: '*.symbols.nupkg'
 - task: DeleteFiles@1
   inputs:
     SourceFolder: '$(build.artifactstagingdirectory)/beta'
