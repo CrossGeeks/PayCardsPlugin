@@ -47,6 +47,32 @@ steps:
     msbuildArguments: '/restore /t:Build /p:ContinuousIntegrationBuild=true /p:Deterministic=false /t:Pack /p:PackageVersion=$(Build.BuildNumber) /p:PackageOutputPath=$(build.artifactstagingdirectory)/final /p:AssemblyFileVersion=$(Build.BuildNumber)'
     clean: true
 
+- task: MSBuild@1
+  displayName: 'Build & Pack beta build'
+  inputs:
+    solution: 'PayCards.iOS/PayCards.iOS.csproj'
+    configuration: 'Release'
+    msbuildArguments: '/restore /t:Build /p:ContinuousIntegrationBuild=true /p:Deterministic=false /t:Pack /p:PackageVersion=$(Build.BuildNumber)-beta /p:PackageOutputPath=$(build.artifactstagingdirectory)/lib/ios/beta /p:AssemblyFileVersion=$(Build.BuildNumber)'
+    clean: true
+
+# build and pack a final version of the NuGet package. Versioning is done through the name tag in this definition.
+- task: MSBuild@1
+  displayName: 'Build & Pack final build'
+  inputs:
+    solution: 'PayCards.iOS/PayCards.iOS.csproj'
+    configuration: 'Release'
+    msbuildArguments: '/restore /t:Build /p:ContinuousIntegrationBuild=true /p:Deterministic=false /t:Pack /p:PackageVersion=$(Build.BuildNumber) /p:PackageOutputPath=$(build.artifactstagingdirectory)/lib/ios/final /p:AssemblyFileVersion=$(Build.BuildNumber)'
+    clean: true
+
+- task: DeleteFiles@1
+  inputs:
+    SourceFolder: '$(build.artifactstagingdirectory)/lib/ios/beta'
+    Contents: '*.symbols.nupkg'
+
+- task: DeleteFiles@1
+  inputs:
+    SourceFolder: '$(build.artifactstagingdirectory)/lib/ios/final'
+    Contents: '*.symbols.nupkg'
 - task: DeleteFiles@1
   inputs:
     SourceFolder: '$(build.artifactstagingdirectory)/beta'
