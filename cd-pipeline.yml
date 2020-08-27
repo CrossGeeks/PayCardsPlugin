@@ -51,12 +51,15 @@ steps:
   inputs:
     command: 'pack'
     packagesToPack: '**/PayCards.iOS.nuspec'
+    configuration: 'Release'
+    packDestination: '$(Build.ArtifactStagingDirectory)/bindings/ios'
     versioningScheme: 'off'
-
 - task: NuGetCommand@2
   inputs:
     command: 'pack'
     packagesToPack: '**/PayCards.Droid.nuspec'
+    configuration: 'Release'
+    packDestination: '$(Build.ArtifactStagingDirectory)/bindings/android'
     versioningScheme: 'off'
 
 - task: DeleteFiles@1
