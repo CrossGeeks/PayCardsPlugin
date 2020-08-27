@@ -51,15 +51,13 @@ steps:
   inputs:
     command: 'pack'
     packagesToPack: '**/PayCards.iOS.nuspec'
-    versioningScheme: 'byEnvVar'
-    versionEnvVar: $(BindingVersion)
+    versioningScheme: 'off'
 
 - task: NuGetCommand@2
   inputs:
     command: 'pack'
     packagesToPack: '**/PayCards.Droid.nuspec'
-    versioningScheme: 'byEnvVar'
-    versionEnvVar: $(BindingVersion)
+    versioningScheme: 'off'
 
 - task: DeleteFiles@1
   inputs:
