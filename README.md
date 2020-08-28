@@ -44,7 +44,7 @@ Call **PayCardsRecognizerService.Initialize** in MainActivity OnCreate method
 
 Override MainActivity OnActivityResult and call **PayCardsRecognizerService.OnActivityResult**
 
-```
+```cs
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
