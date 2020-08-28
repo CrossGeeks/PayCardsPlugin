@@ -21,7 +21,7 @@ Call **CrossPayCards.Current** from any project to gain access to APIs.
 
 ### Getting Started
 
-After installing in your shared, iOS and Android projects you should do the following setup on each platform:
+After installing the package in your shared, iOS and Android projects you should do the following setup on each platform:
 
 #### Android Setup
 
