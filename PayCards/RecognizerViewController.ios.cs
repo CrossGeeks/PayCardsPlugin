@@ -26,7 +26,7 @@ namespace Plugin.PayCards
         {
             base.ViewDidLoad();
             // Perform any additional setup after loading the view, typically from a nib.
-            _recognizer = new PayCardsRecognizer(_recognizerDelegate,PayCardsRecognizerResultMode.Sync, container: View, UIColor.Green);
+            _recognizer = new PayCardsRecognizer(_recognizerDelegate,PayCardsRecognizerResultMode.Async, container: View, UIColor.Green);
 
             _closeButton = new UIButton(UIButtonType.Close);
 
