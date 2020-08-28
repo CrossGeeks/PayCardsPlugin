@@ -61,7 +61,6 @@ namespace Plugin.PayCards
         {
             base.ViewDidDisappear(animated);
 
-           
             _recognizer.StopCamera();
         }
 
