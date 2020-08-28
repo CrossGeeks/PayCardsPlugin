@@ -2,7 +2,7 @@
 <package >
   <metadata minClientVersion="2.8.1">
     <id>PayCards.Droid</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <title>PayCards.Android</title>
     <authors>crossgeeks, rdelrosario</authors>
     <owners>crossgeeks</owners>

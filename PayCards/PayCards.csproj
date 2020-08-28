@@ -46,7 +46,7 @@
     <Compile Include="Platforms\Xamarin\**\*.cs" />
     <Compile Include="**\*.ios.cs" />
     <Compile Include="**\*.ios.*.cs" />
-    <PackageReference Include="PayCards.iOS" Version="1.0.0" />
+     <ProjectReference Include="..\PayCards.iOS\PayCards.iOS.csproj" />
   </ItemGroup>
 
   <ItemGroup Condition=" $(TargetFramework.StartsWith('monoandroid')) ">
@@ -58,7 +58,7 @@
     <AndroidResource Include="Resources\**\*.json" Generator="MSBuild:UpdateAndroidResources" />
     <Compile Include="**\*.android.cs" />
     <Compile Include="**\*.android.*.cs" />
+        <ProjectReference Include="..\PayCards.Droid\PayCards.Droid.csproj" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="28.0.0.3" />
-    <PackageReference Include="PayCards.Droid" Version="1.0.0" />
   </ItemGroup>
 </Project>

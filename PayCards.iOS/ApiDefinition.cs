@@ -46,45 +46,45 @@ namespace PayCards
 	[Static]
 	partial interface Constants
 	{
-		// extern NSString *const _Nonnull WOCardNumber;
-		[Field("WOCardNumber", "__Internal")]
-		NSString WOCardNumber { get; }
+		//// extern NSString *const _Nonnull WOCardNumber;
+		//[Field("WOCardNumber", "__Internal")]
+		//NSString WOCardNumber { get; }
 
-		// extern NSString *const _Nonnull WOExpDate;
-		[Field("WOExpDate", "__Internal")]
-		NSString WOExpDate { get; }
+		//// extern NSString *const _Nonnull WOExpDate;
+		//[Field("WOExpDate", "__Internal")]
+		//NSString WOExpDate { get; }
 
-		// extern NSString *const _Nonnull WOHolderName;
-		[Field("WOHolderName", "__Internal")]
-		NSString WOHolderName { get; }
+		//// extern NSString *const _Nonnull WOHolderName;
+		//[Field("WOHolderName", "__Internal")]
+		//NSString WOHolderName { get; }
 
-		// extern NSString *const _Nonnull WOHolderNameRaw;
-		[Field("WOHolderNameRaw", "__Internal")]
-		NSString WOHolderNameRaw { get; }
+		//// extern NSString *const _Nonnull WOHolderNameRaw;
+		//[Field("WOHolderNameRaw", "__Internal")]
+		//NSString WOHolderNameRaw { get; }
 
-		// extern NSString *const _Nonnull WONumberConfidences;
-		[Field("WONumberConfidences", "__Internal")]
-		NSString WONumberConfidences { get; }
+		//// extern NSString *const _Nonnull WONumberConfidences;
+		//[Field("WONumberConfidences", "__Internal")]
+		//NSString WONumberConfidences { get; }
 
-		// extern NSString *const _Nonnull WOHolderNameConfidences;
-		[Field("WOHolderNameConfidences", "__Internal")]
-		NSString WOHolderNameConfidences { get; }
+		//// extern NSString *const _Nonnull WOHolderNameConfidences;
+		//[Field("WOHolderNameConfidences", "__Internal")]
+		//NSString WOHolderNameConfidences { get; }
 
-		// extern NSString *const _Nonnull WOExpDateConfidences;
-		[Field("WOExpDateConfidences", "__Internal")]
-		NSString WOExpDateConfidences { get; }
+		//// extern NSString *const _Nonnull WOExpDateConfidences;
+		//[Field("WOExpDateConfidences", "__Internal")]
+		//NSString WOExpDateConfidences { get; }
 
-		// extern NSString *const _Nonnull WOCardImage;
-		[Field("WOCardImage", "__Internal")]
-		NSString WOCardImage { get; }
+		//// extern NSString *const _Nonnull WOCardImage;
+		//[Field("WOCardImage", "__Internal")]
+		//NSString WOCardImage { get; }
 
-		// extern NSString *const _Nonnull WOPanRect;
-		[Field("WOPanRect", "__Internal")]
-		NSString WOPanRect { get; }
+		//// extern NSString *const _Nonnull WOPanRect;
+		//[Field("WOPanRect", "__Internal")]
+		//NSString WOPanRect { get; }
 
-		// extern NSString *const _Nonnull WODateRect;
-		[Field("WODateRect", "__Internal")]
-		NSString WODateRect { get; }
+		//// extern NSString *const _Nonnull WODateRect;
+		//[Field("WODateRect", "__Internal")]
+		//NSString WODateRect { get; }
 
 		// extern NSString *const _Nonnull WONumberSamples;
 		//[Field("WONumberSamples", "__Internal")]

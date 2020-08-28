@@ -47,6 +47,24 @@ steps:
     msbuildArguments: '/restore /t:Build /p:ContinuousIntegrationBuild=true /p:Deterministic=false /t:Pack /p:PackageVersion=$(Build.BuildNumber) /p:PackageOutputPath=$(build.artifactstagingdirectory)/final /p:AssemblyFileVersion=$(Build.BuildNumber)'
     clean: true
 
+- task: NuGetCommand@2
+  displayName: 'Create iOS Binding Library NuGet Package'
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/PayCards.iOS.nuspec'
+    configuration: 'Release'
+    packDestination: '$(Build.ArtifactStagingDirectory)/bindings/ios'
+    versioningScheme: 'off'
+    
+- task: NuGetCommand@2
+  displayName: 'Create Android Binding Library NuGet Package'
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/PayCards.Droid.nuspec'
+    configuration: 'Release'
+    packDestination: '$(Build.ArtifactStagingDirectory)/bindings/android'
+    versioningScheme: 'off'
+
 - task: DeleteFiles@1
   inputs:
     SourceFolder: '$(build.artifactstagingdirectory)/beta'
