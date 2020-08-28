@@ -61,7 +61,7 @@ Add Camera Permission in Info.plist
 	<string>This application needs camera access</string>
 ```
 
-## Now you are ready to to scan credit cards!
+**Now you are ready to to scan credit cards!**
 
 ### Usage
 
