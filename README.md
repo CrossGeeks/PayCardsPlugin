@@ -1,4 +1,4 @@
-# PayCards Pluginfor Xamarin iOS and Android
+# PayCards Plugin for Xamarin iOS and Android
 
 [![Build Status](https://dev.azure.com/CrossGeeks/Plugins/_apis/build/status/PayCards%20Plugin%20CD%20Pipeline?branchName=master)](https://dev.azure.com/CrossGeeks/Plugins/_build/latest?definitionId=15&branchName=master)
 
