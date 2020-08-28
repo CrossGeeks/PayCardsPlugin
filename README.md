@@ -4,6 +4,12 @@
 
 Simple cross platform plugin that uses [Pay.Cards](https://pay.cards) library to scan credit card information.
 
+<p align="center">
+<img width="200" height:"600" src="gifs/iosTest.gif" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img width="200" height:"600" src="gifs/androidtest.gif" />
+</p>
+
 ### Setup
 * Available on NuGet: http://www.nuget.org/packages/Plugin.PayCards [![NuGet](https://img.shields.io/nuget/v/Plugin.PayCards.svg?label=NuGet)](https://www.nuget.org/packages/Plugin.PayCards/)
 * Install into your .NETStandard project and Client projects.
