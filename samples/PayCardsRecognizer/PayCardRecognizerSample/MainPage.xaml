@@ -8,8 +8,58 @@
     <ContentPage.BindingContext>
         <vm:MainViewModel/>
     </ContentPage.BindingContext>
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Button Text="Scan Card" Command="{Binding ScanCommand}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    <ScrollView>
+        <Grid VerticalOptions="CenterAndExpand"
+              Padding="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                 <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                 <RowDefinition Height="Auto"/>
+                 <RowDefinition Height="Auto"/>
+                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            
+            <Button Text="📷 Scan Card"
+                    HorizontalOptions="End"
+                    BackgroundColor="Transparent"
+                    Command="{Binding ScanCommand}"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"/>
+
+            <Entry Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Text="{Binding Card.HolderName}"
+                   Placeholder="Card Holder Name"/>
+
+             <Entry Grid.Row="2"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Placeholder="Card Number"
+                   Text="{Binding Card.CardNumber}"/>
+
+            <Entry Grid.Row="3"
+                   Grid.Column="0"
+                   Placeholder="dd/mm"
+                   Text="{Binding Card.ExpirationDate}"/>
+
+            <Entry Grid.Row="3"
+                   Grid.Column="1"
+                   Placeholder="Cvv"/>
+
+             <Button Text="Pay USD $30"
+                     TextColor="White"
+                     BackgroundColor="#6457BD"
+                    Command="{Binding ScanCommand}"
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"/>
+        </Grid>
+    </ScrollView>
 </ContentPage>

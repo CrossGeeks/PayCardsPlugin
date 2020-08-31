@@ -2,12 +2,13 @@
 using System.Windows.Input;
 using Xamarin.Forms;
 using Plugin.PayCards;
+using System.ComponentModel;
+using System.Diagnostics;
 
 namespace PayCardRecognizerSample.ViewModels
 {
-    public class MainViewModel
+    public class MainViewModel : INotifyPropertyChanged
     {
-
         public ICommand ScanCommand
         {
             get
@@ -16,16 +17,31 @@ namespace PayCardRecognizerSample.ViewModels
                 {
                     try
                     {
-                        var card = await CrossPayCards.Current.ScanAsync();
-                        await App.Current.MainPage.DisplayAlert("Result", $"{card.HolderName}\n{card.CardNumber}\n{card.ExpirationDate}","Ok");
+                        Card = await CrossPayCards.Current.ScanAsync().ConfigureAwait(true);
                     }
-                    catch(Exception ex)
-                    {
-                        await App.Current.MainPage.DisplayAlert("Error", ex.ToString(), "Ok");
+                    catch (Exception ex){
+                        Debug.WriteLine(ex);
                     }
-
                 });
             }
         }
+
+        public PayCard Card
+        {
+            set
+            {
+                if (_card != value)
+                {
+                    _card = value;
+
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Card)));
+                }
+            }
+            get => _card;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private PayCard _card;
     }
 }
